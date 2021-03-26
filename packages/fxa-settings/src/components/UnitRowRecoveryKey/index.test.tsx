@@ -20,13 +20,13 @@ describe('UnitRowRecoveryKey', () => {
     );
     expect(
       screen.getByTestId('recovery-key-unit-row-header').textContent
-    ).toContain('Recovery key');
+    ).toContain('rk-header');
     expect(
       screen.getByTestId('recovery-key-unit-row-header-value').textContent
-    ).toContain('Enabled');
+    ).toContain('rk-enabled');
     expect(
       screen.getByTestId('recovery-key-unit-row-modal').textContent
-    ).toContain('Remove');
+    ).toContain('rk-action-remove');
   });
 
   it('renders when recovery key is not set', () => {
@@ -37,13 +37,13 @@ describe('UnitRowRecoveryKey', () => {
     );
     expect(
       screen.getByTestId('recovery-key-unit-row-header').textContent
-    ).toContain('Recovery key');
+    ).toContain('rk-header');
     expect(
       screen.getByTestId('recovery-key-unit-row-header-value').textContent
-    ).toContain('Not set');
+    ).toContain('rk-not-set');
     expect(
       screen.getByTestId('recovery-key-unit-row-route').textContent
-    ).toContain('Create');
+    ).toContain('rk-action-create');
   });
 
   it('can be refreshed', async () => {
@@ -59,7 +59,7 @@ describe('UnitRowRecoveryKey', () => {
     });
     expect(
       screen.getByTestId('recovery-key-unit-row-header-value')
-    ).toHaveTextContent('Not set');
+    ).toHaveTextContent('rk-not-set');
     await act(async () => {
       fireEvent.click(screen.getByTestId('recovery-key-refresh'));
     });
@@ -67,6 +67,6 @@ describe('UnitRowRecoveryKey', () => {
     await wait();
     expect(
       screen.getByTestId('recovery-key-unit-row-header-value')
-    ).toHaveTextContent('Enabled');
+    ).toHaveTextContent('rk-enabled');
   });
 });
